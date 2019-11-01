@@ -5,9 +5,10 @@
 
 ## 项目的亮点
 - nodemon 修改文件自动重启
-- ndoejs连接mysql, 如何执行sql语句
+- nodejs连接mysql, 如何执行sql语句
 - 根据NODE_ENV区分配置
-- 封装exec函数，api使用exec操作数据库 
+- 封装exec函数，api使用exec操作数据库
+- nodejs连接redis
 
 ## 如何使用和学习？
 
