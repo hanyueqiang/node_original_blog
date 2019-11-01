@@ -2,6 +2,7 @@
 const handleBlogRouter = require('./src/router/blog');
 const handleUserRouter = require('./src/router/user');
 const querystring = require('querystring');
+const { set, get } = require('./src/db/redis');
 
 
 //获取cookie过期时间
@@ -12,7 +13,8 @@ const getCookieExpires = () => {
   return d.toGMTString();
 }
 //session 数据
-const SESSION_DATA = {}
+//const SESSION_DATA = {}
+const SESSION_DATA = get('sessionId') || {};
 
 const getPostData = (req) => {
   const promise = new Promise((resolve, reject) => {
