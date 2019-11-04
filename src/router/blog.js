@@ -44,7 +44,7 @@ const handleBlogRouter = (req, res) => {
     const loginCheckResult = loginCheck(req);
     if (loginCheckResult) {
       //未登录
-      return loginCheck
+      return loginCheckResult
     }
 
     // req.body.author = 'zhangsan' //假数据 开发完登录后变成真数据
@@ -62,7 +62,7 @@ const handleBlogRouter = (req, res) => {
     const loginCheckResult = loginCheck(req);
     if (loginCheckResult) {
       //未登录
-      return loginCheck
+      return loginCheckResult
     }
 
     const result = updateBlog(req.body);
@@ -81,7 +81,7 @@ const handleBlogRouter = (req, res) => {
     const loginCheckResult = loginCheck(req);
     if (loginCheckResult) {
       //未登录
-      return loginCheck
+      return loginCheckResult
     }
 
     //req.body.author = 'zhangsan' //假数据 开发完登录后变成真数据

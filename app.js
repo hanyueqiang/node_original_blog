@@ -8,8 +8,8 @@ const { set, get } = require('./src/db/redis');
 //获取cookie过期时间
 const getCookieExpires = () => {
   const d = new Date();
-  d.setTime(d.getTime() + (24*60*60*1000));
-  console.log('d.toGMTString()',d.toGMTString())
+  d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+  console.log('d.toGMTString()', d.toGMTString())
   return d.toGMTString();
 }
 //session 数据
@@ -73,7 +73,7 @@ const serverHandle = (req, res) => {
     if (!SESSION_DATA[userId]) {
       SESSION_DATA[userId] = {};
     }
-  }else {
+  } else {
     needSetCookie = true;
     userId = `${Date.now()}_${Math.random()}`;
     SESSION_DATA[userId] = {};
@@ -95,7 +95,7 @@ const serverHandle = (req, res) => {
     const blogResult = handleBlogRouter(req, res);
     if (blogResult) {
       blogResult.then(blogData => {
-        if(needSetCookie) {
+        if (needSetCookie) {
           res.setHeader('set-Cookie', `userid=${userId}; path=/; httpOnly; expires='${getCookieExpires()}'`)
         }
         res.end(
@@ -117,7 +117,7 @@ const serverHandle = (req, res) => {
     const userResult = handleUserRouter(req, res);
     if (userResult) {
       userResult.then(userData => {
-        if(needSetCookie) {
+        if (needSetCookie) {
           res.setHeader('set-Cookie', `userid=${userId}; path=/; httpOnly; expires='${getCookieExpires()}'`)
         }
         res.end(
