@@ -3,6 +3,7 @@ const handleBlogRouter = require('./src/router/blog');
 const handleUserRouter = require('./src/router/user');
 const querystring = require('querystring');
 const { set, get } = require('./src/db/redis');
+const { access } = require('./src/utils/log')
 
 
 //获取cookie过期时间
@@ -44,6 +45,8 @@ const getPostData = (req) => {
   return promise;
 }
 const serverHandle = (req, res) => {
+  //记录access
+  access(`${req.method}--${req.url}`)
   //设置返回格式 json
   res.setHeader('Content-type', 'application/json');
   //获取参数
